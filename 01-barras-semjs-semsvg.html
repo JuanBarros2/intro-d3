@@ -6,19 +6,37 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <style>
     .chart div {
-      font: 10px sans-serif;
+      font: 20px sans-serif;
       background-color: steelblue;
       text-align: right;
       padding: 3px;
       margin: 1px;
       color: white;
     }
+    /* Standard syntax */
+    @keyframes mymove {
+        0%   {
+          background-color: red;
+          width: 100px;
+          color: white;
+        }
+        50%  {
+          background-color: green;
+          width: 200px;
+        }
+        100%   {
+          background-color: red;
+          width: 100px;
+          color: white;
+        }
+    }
 
     /* Seletores dinâmicos: */
-/*     .chart div:hover {
+     .chart div:hover {
+      animation: mymove 2s infinite;
       background-color: yellow;
       color: steelblue;
-    } */
+    } 
   </style>
 </head>
 
