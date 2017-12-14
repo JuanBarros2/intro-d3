@@ -52,16 +52,25 @@
        * (Nem pense em fazer hardcoded :)).
        */
 
+<<<<<<< HEAD
       const max = Math.max.apply(null, dados);
       console.log(max);
+=======
+>>>>>>> upstream/master
       svg.selectAll('rect')
           .data(dados)
           .enter()
             .append('rect')
               .attr('x', 0) // A função com dois parâmetros pode entrar aqui
+<<<<<<< HEAD
               .attr('y', (dado, index)=> index * (altura / dados.length) )// e aqui
               .attr('width', (dado)=> (dado / max) * largura)
               .attr('height', (altura / dados.length) - 2);
+=======
+              .attr('y', 0) // e aqui
+              .attr('width', 30)
+              .attr('height', 20);
+>>>>>>> upstream/master
 
       /* Mais dicas :
        * - As barras ficam mais legíveis se não encostarem umas nas outras. Para isso
