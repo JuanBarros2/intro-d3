@@ -96,7 +96,7 @@
 
           deptos
             .append("circle")
-            .attr("r", circuloInicial)
+            .attr("r", circuloInicial);
 
           deptos
             .append("text")
@@ -104,20 +104,21 @@
             .attr("x", 0)
             .text(d => d.UORG_LOTACAO.substring(18, 35))
 
-          var color = d3.scaleQuantize()
-                            .domain([ 0, maxValue ])
-                            .range(colorbrewer.Reds[5]);
           /*
            * Hover
            */
           deptos.on("mouseover", mouseNoCirculo);
           function mouseNoCirculo(d){
+      
             d3.selectAll("text")
               .style("font-weight", p => p.UORG_LOTACAO === d.UORG_LOTACAO ? "bold" : "normal");
+            d3.selectAll("circle")
+              .style("fill", p => p.UORG_LOTACAO === d.UORG_LOTACAO ? "#111" : "#bebada" )
           }
 
           deptos.on("mouseout", mouseSaiuCirculo);
           function mouseSaiuCirculo(d){
+            
             d3.selectAll("text")
               .style("font-weight", "normal");
           }
@@ -141,11 +142,13 @@
             var maxValue = d3.max(dadosLidos, d => parseFloat(d[dimensao]))
             var radiusScale = d3.scaleLinear()
                             .domain([ 0, maxValue ])
-                            .range([ 2, 25 ])
+                            .range([ 2, 25 ]);
+            
             d3.selectAll("g.depto")
               .select("circle")
-              //.transition().duration(700) // descomente aqui para testar
+              .transition().duration(700) // descomente aqui para testar
               .attr("r", d => radiusScale(d[dimensao]))
+              .attr("fill", d => color(d[dimensao]))
           }
         }
       }
